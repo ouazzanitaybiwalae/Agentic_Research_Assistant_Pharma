@@ -17,7 +17,7 @@ class Settings:
     corpus_dir: Path
     chunk_size: int = 800
     chunk_overlap: int = 120
-    retrieval_k: int = 5
+    retrieval_k: int = 8
     max_research_rounds: int = 2
 
 
@@ -36,7 +36,7 @@ def get_settings() -> Settings:
 
     return Settings(
         api_key=required["OPENAI_API_KEY"] or "",
-        base_url=os.getenv("OPENAI_BASE_UR") or None,
+        base_url=os.getenv("OPENAI_BASE_URL") or os.getenv("OPENAI_BASE_UR") or None,
         chat_model=required["OPENAI_MODEL"] or "",
         embedding_model=required["OPENAI_EMBEDDING_MODEL"] or "",
         corpus_dir=PROJECT_ROOT / "corpus",

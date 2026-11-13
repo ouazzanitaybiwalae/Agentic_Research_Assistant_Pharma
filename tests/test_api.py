@@ -64,6 +64,30 @@ def test_health_returns_healthy_status(api_client) -> None:
     assert response.json() == {"status": "healthy"}
 
 
+def test_root_serves_frontend_html(api_client) -> None:
+    client, _, _ = api_client
+
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/html")
+    assert "<textarea" in response.text
+    assert 'id="question"' in response.text
+    assert 'src="/static/marked.umd.js"' in response.text
+    assert 'src="/static/purify.min.js"' in response.text
+
+
+@pytest.mark.parametrize("asset_name", ["marked.umd.js", "purify.min.js"])
+def test_markdown_assets_are_served_locally(api_client, asset_name: str) -> None:
+    client, _, _ = api_client
+
+    response = client.get(f"/static/{asset_name}")
+
+    assert response.status_code == 200
+    assert "javascript" in response.headers["content-type"]
+    assert response.content
+
+
 def test_ask_returns_workflow_answer(api_client) -> None:
     client, calls, received_questions = api_client
 

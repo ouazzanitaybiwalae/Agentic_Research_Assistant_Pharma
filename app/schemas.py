@@ -27,6 +27,7 @@ class ResearchState(TypedDict, total=False):
     question: str
     plan: list[str]
     messages: list[BaseMessage]
+    retrieved_sources: list[str]
     research_rounds: int
     review: GroundingReview
     answer: str

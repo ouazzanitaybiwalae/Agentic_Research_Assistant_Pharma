@@ -34,7 +34,7 @@ Copy-Item .env.example .env
 ```
 
 Set `OPENAI_API_KEY`, `OPENAI_MODEL`, and `OPENAI_EMBEDDING_MODEL` in `.env`. For a LiteLLM
-OpenAI-compatible endpoint, set `OPENAI_API_BASE` to its base URL. Ensure the endpoint supports both
+OpenAI-compatible endpoint, set `OPENAI_BASE_UR` to its base URL. Ensure the endpoint supports both
 chat completions and embeddings.
 
 ## Run

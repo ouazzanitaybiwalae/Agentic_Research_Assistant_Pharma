@@ -35,7 +35,7 @@ def create_search_corpus_tool(
 
         def matches(document: Document) -> bool:
             metadata: dict[str, Any] = document.metadata
-            return all(metadata.get(key, "").casefold() == value for key, value in filters.items())
+            return all(metadata.get(key, "").casefold() in value for key, value in filters.items())
 
         documents = vector_store.similarity_search(
             query,
