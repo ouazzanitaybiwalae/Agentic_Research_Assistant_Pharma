@@ -6,8 +6,9 @@ This document records the AI tools used during the development of this project, 
 
 | Tool | Used for |
 |---|---|
-| ChatGPT | Discussing architecture, debugging, code review, understanding errors, improving prompts, test design, and reviewing technical decisions. |
 | GitHub Copilot (via VS Code) | Code suggestions, implementing targeted changes, generating and updating tests, debugging, and frontend improvements. |
+| ChatGPT | Discussing architecture, debugging, code review, understanding errors, improving prompts, test design, and reviewing technical decisions. |
+
 
 **AI coding configuration files:** No additional AI coding configuration files were used, apart from this disclosure document. 
 
