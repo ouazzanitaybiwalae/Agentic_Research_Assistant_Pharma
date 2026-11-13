@@ -51,7 +51,7 @@ def get_settings() -> Settings:
 
     return Settings(
         api_key=required["OPENAI_API_KEY"] or "",
-        base_url=_clean_url(os.getenv("OPENAI_BASE_UR") or os.getenv("OPENAI_BASE_URL") or None),
+        base_url=_clean_url(os.getenv("OPENAI_BASE_UR")) or _clean_url(os.getenv("OPENAI_BASE_URL")) or None,
         chat_model=required["OPENAI_MODEL"] or "",
         embedding_model=required["OPENAI_EMBEDDING_MODEL"] or "",
         corpus_dir=PROJECT_ROOT / "corpus",
